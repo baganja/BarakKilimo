@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Barak Kilimo</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #000000 0%, #111111 100%);
+            --accent-gradient: linear-gradient(135deg, #004080 0%, #007acc 100%);
+            --dark-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.2);
+            --shadow-heavy: rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        [data-theme="light"] {
+            --glass-bg: #ffffff;
+            --glass-border: #cccccc;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #718096;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --shadow-heavy: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-gradient);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: 5px 0 30px var(--shadow-medium);
+        }
+
+        .sidebar-header {
+            padding: 30px 25px;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: var(--glass-bg);
+            border-left-color: #667eea;
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .nav-item i {
+            font-size: 1.2rem;
+            width: 25px;
+            margin-right: 15px;
+        }
+
+        .sidebar-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .theme-toggle {
+            width: 100%;
+            padding: 12px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .social-icon:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px var(--shadow-medium);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 40px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Page */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 40px;
+            text-align: center;
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 800;
+           background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.3)); }
+            to { filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.6)); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px var(--shadow-medium);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--shadow-heavy);
+        }
+
+        /* Page Headers */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--glass-border);
+            box-shadow: 0 20px 60px var(--shadow-heavy);
+            transition: var(--transition);
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow-heavy);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: var(--glass-bg);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-gradient);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px var(--shadow-heavy);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -50px;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px var(--glass-bg);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline-item .institution,
+        .timeline-item .company {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .timeline-item .duration {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .timeline-item ul {
+            margin-left: 20px;
+        }
+
+        .timeline-item li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow-heavy);
+        }
+
+        .project-image {
+            height: 250px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tag {
+            background: var(--glass-bg);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow-heavy);
+        }
+
+        .contact-card a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Social Contact Section */
+        .social-contact {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .social-contact h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-link i {
+            font-size: 1.5rem;
+        }
+
+        /* Modal for Project Images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .page {
+                padding: 20px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 30px 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .profile-pic {
+                width: 280px;
+                height: 280px;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item::before {
+                left: -42px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-link {
+                width: 250px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .profile-pic {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    
+/* Custom Footer Styles */
+.custom-footer {
+    background: var(--glass-bg);
+    border-top: 1px solid var(--glass-border);
+    padding: 60px 30px 30px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.footer-underline {
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gradient);
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    margin: 8px 0;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-socials a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.footer-socials a:hover {
+    background: var(--accent-gradient);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--glass-border);
+    margin-top: 40px;
+}
+
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+.sidebar {
+    overflow-y: auto;
+    max-height: 100vh;
+}
+.main-content {
+    margin-left: 280px;
+    padding-left: 0;
+    width: calc(100% - 280px);
+}
+footer.custom-footer {
+    z-index: 1;
+    position: relative;
+}
+
+.sidebar {
+    min-height: 100vh;
+}
+</style>
+<style>
+.project-card {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.project-content h4::before {
+    content: "📌 ";
+}
+
+.project-content p:nth-of-type(1)::before {
+    content: "🛠 ";
+}
+
+.project-content p:nth-of-type(2)::before {
+    content: "👤 ";
+}
+
+.project-content p:nth-of-type(3)::before {
+    content: "🧭 ";
+}
+
+.view-project-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.view-project-btn:hover {
+    background: var(--primary-dark);
+}
+</style><style>
+.view-project-btn {
+    background: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.view-project-btn:hover {
+    background: #007bff;
+    color: white;
+}
+</style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/><style>
+.mobile-menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  z-index: 2001;
+  cursor: pointer;
+}
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+.sidebar.open {
+  transform: translateX(0);
+}
+.main-content {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+.page {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style><meta content="Barak Kilimo - GIS Specialist Portfolio showcasing projects in Web GIS, Remote Sensing, Data Science, and Spatial Analysis." name="description"/><meta content="#000000" name="theme-color"/><style>
+.mobile-menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  z-index: 2001;
+  cursor: pointer;
+}
+</style><style>
+.mobile-menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #007bff;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  z-index: 2001;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-menu-toggle i {
+  font-size: 1.2rem;
+}
+</style><style>
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--glass-border);
+  box-shadow: 4px 0 20px rgba(0,0,0,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 1000;
+  padding: 20px 10px;
+  font-size: 0.85rem;
+}
+.sidebar.open {
+  transform: translateX(0);
+}
+.sidebar .nav-item {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+.sidebar .nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.sidebar .nav-item i {
+  font-size: 1rem;
+}
+</style><style>
+.sidebar .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    color: var(--text-primary);
+}
+.sidebar .nav-item i {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+.sidebar .nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+.sidebar .nav-item.active {
+    background: rgba(0, 123, 255, 0.15);
+    color: #007bff;
+}
+</style><style>
+body, .page {
+    color: #121212;
+    background-color: #ffffff;
+}
+</style></head>
+<body><button class="mobile-menu-toggle" onclick="toggleMobileMenu()" style="position: fixed; top: 20px; left: 20px; z-index: 1001; background: transparent; color: #007bff; border: none; padding: 4px 8px; font-size: 0.95rem; display: flex; align-items: center; gap: 6px; cursor: pointer;"><i class="fas fa-bars"></i><span> Menu</span></button>
+<!-- Loading Screen -->
+<!-- Mobile Menu Toggle -->
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<div class="logo">BK</div>
+<div class="tagline">GIS Specialist</div>
+</div>
+<div class="nav-menu">
+<div class="nav-item active" data-page="home" onclick="showPage('home')">
+<i class="fas fa-home"></i>
+<span>Home</span>
+</div>
+<div class="nav-item" data-page="about" onclick="showPage('about')">
+<i class="fas fa-user"></i>
+<span>About</span>
+</div>
+<div class="nav-item" data-page="skills" onclick="showPage('skills')">
+<i class="fas fa-cogs"></i>
+<span>Skills</span>
+</div>
+<div class="nav-item" data-page="education" onclick="showPage('education')">
+<i class="fas fa-graduation-cap"></i>
+<span>Education</span>
+</div>
+<div class="nav-item" data-page="projects" onclick="showPage('projects')">
+<i class="fas fa-briefcase"></i>
+<span>Projects</span>
+</div>
+<div class="nav-item" data-page="experience" onclick="showPage('experience')">
+<i class="fas fa-building"></i>
+<span>Experience</span>
+</div>
+<div class="nav-item" data-page="contact" onclick="showPage('contact')">
+<i class="fas fa-envelope"></i>
+<span>Contact</span>
+</div>
+<div class="nav-item" data-page="resume" onclick="showPage('resume')"><i class="fas fa-file-alt"></i><span>Resume</span></div></div>
+<div class="sidebar-footer">
+</div>
+</nav>
+<!-- Main Content -->
+<main class="main-content">
+<!-- Home Page -->
+<div class="page active" id="home">
+<div class="hero-section" style="background: url('images/hero-bg.gif') center center / cover no-repeat fixed;position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;">
+<div class="hero-content" style="max-width: 800px; padding: 40px; text-align: center;text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+<h1 class="hero-title" style="color: #0000FF; font-weight: normal; font-size: 4rem;">Barak Kilimo</h1>
+<p class="hero-subtitle" style="color: white; font-weight: 500;">GIS Specialist &amp; Spatial Analytics Expert</p>
+<p class="hero-description" style="color: white; font-weight: 500;">
+                        Transforming spatial data into actionable insights through advanced 
+                        geospatial analysis, enterprise GIS solutions, and cutting-edge cartographic design.
+                    </p>
+<button class="cta-button" onclick="showPage('about')">
+                        Explore My Work <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- About Page -->
+<div class="page" id="about">
+<div class="page-header">
+<h1 class="page-title">About Me</h1>
+<p class="page-subtitle">Passionate about transforming spatial data into meaningful insights</p>
+</div>
+<div class="about-grid" style="display: flex; flex-direction: column; gap: 40px;"><div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;"><div class="about-image">
+<img alt="Barak Kilimo" class="profile-pic" src="images/profile.jpg"/>
+</div><div class="about-text" style="flex: 1;"><h3>My Journey into GIS</h3><p>My journey into geospatial engineering began in the remote villages of Kerio Valley, where I witnessed firsthand the profound challenges that geographic isolation and resource limitations impose on rural communities. Growing up in a banditry-prone region of Baringo County, I developed an early fascination with how geographic understanding could unlock solutions to the agricultural and developmental challenges that defined my childhood landscape.</p></div></div><div class="about-text"><p>As a young boy in Chepturu Primary School, I was captivated by the patterns of the land around me—the way seasonal rains transformed the valley, how elevation influenced crop yields, and how geographic factors determined which communities thrived or struggled. This curiosity evolved into a conviction that spatial analysis and remote sensing technologies could revolutionize how we approach agriculture, resource management, and community development in marginalized areas.</p><p>My academic journey took me from being the sole student from my primary school to advance to secondary education, through the competitive environment of Kamagut High School in Eldoret, and eventually to the prestigious St. Joseph's Boys School in Kitale. Each transition strengthened my resolve to pursue geospatial engineering as a means of creating meaningful change.</p><p>At Jomo Kenyatta University of Agriculture and Technology, I immersed myself in the intricate world of Geospatial Information Science and Remote Sensing. The theoretical foundations I gained there came alive during my practical experiences—from conducting land surveys in Kiambu County, where I honed my understanding of property boundaries and legal documentation, to implementing Plus Code Addressing systems in Kisumu County, where I witnessed technology's power to improve urban planning and service delivery.</p><p>Recognizing that the future of GIS lies at the intersection of traditional spatial analysis and modern web technologies, I expanded my expertise through specialized training at Zalego Academy in Westlands, focusing on programming and web development. This foundation led me to pursue advanced coursework in Web GIS development through Udemy and Harvard's CS50 Introduction to Programming with Python, integrating cutting-edge programming skills with my geospatial expertise.</p><p>My professional portfolio spans diverse sectors—from telecommunications infrastructure projects with Jamii Telecom to international web development for Terra Check, a geology company in Saudi Arabia. Each project has reinforced my belief that geospatial solutions can bridge the gap between complex geographic challenges and practical, scalable interventions.</p><p>Today, I specialize in creating sophisticated spatial analyses and cartographic solutions that support evidence-based decision-making across industries. My work is driven by the same passion that first emerged in the Kerio Valley—the conviction that understanding our geographic world is fundamental to creating equitable opportunities and sustainable development.</p><p>From the rural landscapes of Baringo to the technological corridors of Nairobi, my journey reflects a commitment to leveraging geospatial intelligence as a force for transformative change. I bring not just technical expertise in GIS platforms, remote sensing, and web development, but also the perspective of someone who understands how geographic solutions can reshape communities and lives.</p></div></div>
+</div>
+<!-- Skills Page -->
+<div class="page" id="skills">
+<div class="page-header">
+<h1 class="page-title">Technical Skills</h1>
+<p class="page-subtitle">Comprehensive expertise in geospatial technologies and analytical tools</p>
+</div>
+<div class="skills-grid">
+<div class="skill-card">
+<div class="skill-icon">
+<i class="fas fa-map-marked-alt"></i>
+</div>
+<h3>GIS Software</h3>
+<div class="skill-tags">
+<span class="skill-tag">ArcGIS Pro</span>
+<span class="skill-tag">QGIS</span>
+<span class="skill-tag">ArcMap</span>
+<span class="skill-tag">MapInfo</span>
+<span class="skill-tag">Global Mapper</span>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-icon">
+<i class="fas fa-satellite"></i>
+</div>
+<h3>Remote Sensing</h3>
+<div class="skill-tags">
+<span class="skill-tag">ERDAS Imagine</span>
+<span class="skill-tag">ENVI</span>
+<span class="skill-tag">Google Earth Engine</span>
+<span class="skill-tag">Satellite Imagery</span>
+<span class="skill-tag">UAV Mapping</span>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-icon">
+<i class="fas fa-database"></i>
+</div>
+<h3>Spatial Databases</h3>
+<div class="skill-tags">
+<span class="skill-tag">PostgreSQL/PostGIS</span>
+<span class="skill-tag">Oracle Spatial</span>
+<span class="skill-tag">SQL Server</span>
+<span class="skill-tag">MongoDB</span>
+<span class="skill-tag">Geodatabase</span>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-icon">
+<i class="fas fa-code"></i>
+</div>
+<h3>Programming</h3>
+<div class="skill-tags">
+<span class="skill-tag">Python</span>
+<span class="skill-tag">R</span>
+<span class="skill-tag">JavaScript</span>
+<span class="skill-tag">SQL</span>
+<span class="skill-tag">HTML/CSS</span>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-icon">
+<i class="fas fa-globe"></i>
+</div>
+<h3>Web GIS</h3>
+<div class="skill-tags">
+<span class="skill-tag">ArcGIS Online</span>
+<span class="skill-tag">Leaflet</span>
+<span class="skill-tag">OpenLayers</span>
+<span class="skill-tag">Mapbox</span>
+<span class="skill-tag">Google Maps API</span>
+</div>
+</div>
+<div class="skill-card">
+<div class="skill-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+<h3>Data Analysis</h3>
+<div class="skill-tags">
+<span class="skill-tag">Spatial Statistics</span>
+<span class="skill-tag">Geostatistics</span>
+<span class="skill-tag">Network Analysis</span>
+<span class="skill-tag">Modeling</span>
+<span class="skill-tag">Machine Learning</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Education Page -->
+<div class="page" id="education">
+<div class="page-header">
+<h1 class="page-title">Education</h1>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<h3>Harvard University (Online)</h3>
+<p>CS50's Introduction to Programming with Python</p>
+<p>September 2024 - December 2024 | Online Certificate Program</p>
+</div>
+<div class="timeline-item">
+<h3>Udemy Online Learning Platform</h3>
+<p>Web GIS Development Course</p>
+<p>July 2023 - October 2023 | Online Certification</p>
+</div>
+<div class="timeline-item">
+<h3>Zalego Academy</h3>
+<p>Website Design and Development Certification</p>
+<p>January 2023 - March 2023 | Westlands, Nairobi</p>
+</div>
+<div class="timeline-item">
+<h3>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</h3>
+<p>Bachelor of Science in Geospatial Information Science</p>
+<p>September 2017 - December 2021 | Second Class Honors | Nairobi, Kenya</p>
+</div>
+<div class="timeline-item">
+<h3>St. Joseph's Boys School Kitale</h3>
+<p>Kenya Certificate of Secondary Education (KCSE)</p>
+<p>2013 - 2016 | Grade: B+</p>
+</div>
+<div class="timeline-item">
+<h3>Chepturu Primary School</h3>
+<p>Kenya Certificate of Primary Education (KCPE)</p>
+<p>2003 - 2012 | Baringo County | Score: 342 marks</p>
+</div>
+</div>
+</div>
+<!-- Experience Page -->
+<div class="page" id="experience">
+<div class="page-header">
+<h1 class="page-title">Professional Experience</h1>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<h3>Jamii Telecom</h3>
+<p><strong>GIS Analyst</strong> | December 2024 - May 2025 | Nairobi, Kenya</p>
+<ul>
+<li>Conducted spatial analysis for telecommunications infrastructure development</li>
+<li>Supported fiber network planning and optimization projects</li>
+<li>Utilized GIS technologies for network coverage analysis and expansion planning</li>
+</ul>
+</div>
+<div class="timeline-item">
+<h3>Terra Check Company</h3>
+<p><strong>Web Developer</strong> | September 2023 - July 2024 | Saudi Arabia (Remote)</p>
+<ul>
+<li>Developed and maintained web applications for geological survey company</li>
+<li>Implemented responsive design solutions for international client base</li>
+<li>Integrated geospatial functionalities into web-based platforms</li>
+</ul>
+</div>
+<div class="timeline-item">
+<h3>Kisumu County</h3>
+<p><strong>Plus Code Addressing - Geospatial Engineer</strong> | April 2022 - December 2022 | Kisumu, Kenya</p>
+<ul>
+<li>Conducted geocoding to assign Plus Codes across Kisumu County</li>
+<li>Performed comprehensive spatial data validation and quality assurance</li>
+<li>Implemented and maintained web mapping technologies for urban planning</li>
+</ul>
+</div>
+<div class="timeline-item">
+<h3>Kiambu County</h3>
+<p><strong>Land Surveyor</strong> | January 2022 - April 2022 | Kiambu, Kenya</p>
+<ul>
+<li>Conducted title verification and parcel allotment assessments</li>
+<li>Performed boundary surveys and prepared legal documents for land ownership transfer</li>
+</ul>
+</div>
+<div class="timeline-item">
+<h3>Kenya Forest Service (KFS)</h3>
+<p><strong>Survey and Mapping Attaché</strong> | February 2021 - May 2021 | Nairobi, Kenya</p>
+<ul>
+<li>Created detailed technical drawings and maps for forestry projects</li>
+<li>Conducted boundary surveys and topographical mapping for forest reserves</li>
+<li>Utilized AutoCAD, GIS, GPS, theodolites, total stations, RTK and GPS equipment</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Projects Page -->
+<div class="page" id="projects">
+<div class="page-header">
+<h1 class="page-title">Portfolio Projects</h1>
+</div>
+<div class="project-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 20px;"><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🗺️</span></div><div class="project-content"><h4>Interactive Web GIS Platform for County Infrastructure</h4><p>🛠 JavaScript, Leaflet.js, PostGIS, HTML5/CSS3 | ⏱ 6 months (2022)</p><p>👤 Client: Africa Center for Advanced Technology</p><p>Developed a comprehensive web-based GIS platform for managing Kisumu County's urban infrastructure. The application features real-time data visualization, interactive mapping, and infrastructure asset management capabilities.</p><ul style="margin-left: 20px;"><li>Interactive dashboard with multiple basemap options (satellite, street view, terrain)</li><li>Real-time infrastructure status monitoring with color-coded indicators</li><li>Advanced filtering and search functionality for roads, water systems, and public facilities</li><li>Mobile-responsive design with touch-optimized controls</li><li>Layer management panel with transparency controls and legend</li><li>Pop-up information windows displaying detailed asset attributes</li></ul><button class="view-project-btn" data-project="urban-growth">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📐</span></div><div class="project-content"><h4>Precision Land Survey and Cadastral Mapping System</h4><p>🛠 AutoCAD Civil 3D, ArcGIS Pro, Total Station, RTK GPS | ⏱ 4 months (2022)</p><p>👤 Client: Kenya Forest Service</p><p>Conducted comprehensive land surveying and boundary demarcation for Kenya Forest Service, creating detailed cadastral maps and Forest documentation.</p><ul style="margin-left: 20px;"><li>High-precision topographic surveys with 1cm accuracy</li><li>Digital cadastral maps with parcel boundaries and coordinates</li><li>Survey reports with bearing calculations and area computations</li><li>Legal descriptions and boundary certificates</li><li>3D terrain models showing elevation contours and slope analysis</li></ul><button class="view-project-btn" data-project="land-use-classification">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📍</span></div><div class="project-content"><h4>Plus Code Addressing Implementation for Urban Planning</h4><p>🛠 Google Maps API, Python, QGIS, PostgreSQL | ⏱ 8 months (2022)</p><p>👤 Client: Kisumu County Urban Planning Department</p><p>Implemented a comprehensive Plus Code addressing system for Kisumu County, geocoding over 15,000 locations to improve emergency response, service delivery, and urban planning initiatives.</p><ul style="margin-left: 20px;"><li>Systematic geocoding of residential, commercial, and institutional addresses</li><li>Quality assurance protocols ensuring 95% location accuracy</li><li>Integration with existing county databases and mapping systems</li><li>Training programs for local government staff</li><li>Mobile data collection application for field verification</li></ul><button class="view-project-btn" data-project="disaster-management">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🪨</span></div><div class="project-content"><h4>Terra Check Geological Survey Web Platform</h4><p>🛠 React.js, Node.js, MongoDB, Bootstrap, D3.js | ⏱ 10 months (2023-2024)</p><p>👤 Client: Terra Check Company, Saudi Arabia</p><p>Developed a comprehensive web platform for geological survey data management, featuring interactive visualizations, report generation, and client portal functionality for international geological consultancy.</p><ul style="margin-left: 20px;"><li>Interactive geological map viewer with drill hole data visualization</li><li>Dynamic charts and graphs for mineral composition analysis</li><li>Automated report generation with customizable templates</li><li>Client dashboard with project progress tracking</li><li>Multi-language support (English/Arabic)</li><li>Secure file management and document sharing system</li></ul><button class="view-project-btn" data-project="transport-optimization">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📈</span></div><div class="project-content"><h4>Australia Living Costs Crisis Dashboard</h4><p>🛠 R, Shiny, Plotly, DT | ⏱ 3 months (2024)</p><p>Created an interactive R Shiny dashboard analyzing Australia's cost of living crisis since 2018, tracking inflation trends and price increases across essential categories to understand the financial impact on Australian households.</p><ul style="margin-left: 20px;"><li>Consumer Price Index tracking across 6 key categories (2018–2024)</li><li>Real-time inflation monitoring with current annual rate display</li><li>Category-specific cost increase analysis (Housing: 92.9%, Food: 67.4%, Transport: 37.2%)</li><li>Interactive time-series visualizations showing price trends by sector</li><li>Comparative regional analysis tools for living cost variations</li><li>Cost-of-living squeeze metrics correlating wage growth with essential expenses</li><li>Data export functionality for economic research and policy analysis</li></ul><button class="view-project-btn" data-project="environmental-monitoring">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🚨</span></div><div class="project-content"><h4>Melbourne Crime Pattern Analysis System</h4><p>🛠 ArcGIS Pro, Python (Pandas, GeoPandas), R (Crime Analysis), QGIS | ⏱ 4 months (2024)</p><p>Conducted comprehensive spatial crime analysis for Melbourne metropolitan area, identifying crime hotspots, temporal patterns, and risk factors to support law enforcement resource allocation and community safety initiatives.</p><ul style="margin-left: 20px;"><li>Hotspot analysis using Kernel Density Estimation</li><li>Temporal pattern analysis by hour, day, and season</li><li>Crime correlation analysis with socioeconomic indicators</li><li>Predictive risk modeling for high-crime areas</li><li>Network analysis for optimal patrol route planning</li><li>Statistical reporting with confidence intervals and significance testing</li></ul><button class="view-project-btn" data-project="precision-agriculture">View Project</button></div></div></div>
+</div>
+<!-- Contact Page -->
+<div class="page" id="contact">
+<div class="page-header">
+<h1 class="page-title">Get In Touch</h1>
+<p class="page-subtitle">Let's collaborate on your next geospatial project</p>
+</div>
+<div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+<div class="contact-card">
+<a href="tel:+254722200616">
+<div class="contact-icon">
+<i class="fas fa-phone"></i>
+</div>
+<h3>Phone</h3>
+<p>+254 722 200 616</p>
+</a>
+</div>
+<div class="contact-card">
+<a href="mailto:barakkilimo@gmail.com">
+<div class="contact-icon">
+<i class="fas fa-envelope"></i>
+</div>
+<h3>Email</h3>
+<p>barakkilimo@gmail.com</p>
+</a>
+</div>
+<div class="contact-card">
+<div class="contact-icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+<h3>Location</h3>
+<p>Nairobi, Kenya</p>
+</div>
+<div class="contact-card">
+<div class="contact-icon">
+<i class="fas fa-briefcase"></i>
+</div>
+<h3>Availability</h3>
+<p>Open for Projects</p>
+</div>
+</div>
+</div>
+<div class="page" id="resume"><div class="page-header"><h1 class="page-title">My Resume</h1><p class="page-subtitle">View or download my resume</p></div><div style="text-align: center; padding: 40px;"><button class="cta-button" onclick="document.getElementById('resumeViewer').style.display='block'" style="margin-right: 15px;">📄 View My Resume</button><a class="cta-button" download="" href="resume.pdf">⬇️ Download My CV</a><div id="resumeViewer" style="display:none; margin-top:30px;"><iframe height="600px" src="resume.pdf" style="border: none;" width="100%"></iframe></div></div></div></main>
+<!-- Project Modal -->
+<div class="modal" id="projectModal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(5px); align-items: center; justify-content: center;">
+<div class="modal-content" style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0; margin: 0;">
+<span class="close-modal" onclick="closeProjectModal()" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer; z-index: 10; background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 8px;">×</span>
+<img alt="Project Image" id="modalImage" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.03)'" src="" style="max-width: 100vw; max-height: 100vh; object-fit: contain; transition: transform 0.3s ease-in-out;"/>
+</div>
+</div>
+<footer class="custom-footer">
+<div class="footer-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; padding: 30px 20px; margin-left: 300px; font-size: 0.95rem;"><div class="footer-col">
+<h3>Connect With Me</h3>
+<div class="footer-underline"></div>
+<div class="footer-socials">
+<a href="https://x.com/Barak_Kilimo" target="_blank"><i class="fab fa-twitter"></i></a>
+<a href="https://www.linkedin.com/in/barak-kilimo-940993208/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://github.com/barakkilimo" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/barak_kilimo/" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+</div><div class="footer-col">
+<h3>Contact</h3>
+<p><strong>Phone:</strong> +254 722 200 616</p>
+<p><strong>Email:</strong> barakkilimo@gmail.com</p>
+<div class="footer-underline"></div></div><div class="footer-col">
+<h3>Address</h3>
+<div class="footer-underline"></div>
+<p>Nairobi General Post Office</p>
+<p>Kenyatta Avenue, Starehe, Nairobi, Kenya, 00100</p>
+</div></div>
+<div class="footer-bottom" style="text-align: center; padding: 20px; background: #111; color: white; font-size: 0.85rem;">© 2025 Barak Kilimo. All rights reserved.</div>
+</footer>
+<script>
+document.querySelectorAll('.view-project-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const projectId = button.getAttribute('data-project');
+    const modal = document.getElementById('projectModal');
+    const modalImg = modal.querySelector('img');
+    modalImg.src = 'images/' + projectId + '-project.jpg';
+    modal.style.display = 'flex';
+  });
+});
+document.querySelectorAll('.close-modal').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('projectModal').style.display = 'none';
+  });
+});
+</script><script>
+function toggleMobileMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+        });
+    });
+}
+</script><script>
+let sidebarTimer = null;
+function toggleMobileMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+
+    if (sidebar.classList.contains('open')) {
+        clearTimeout(sidebarTimer);
+        sidebarTimer = setTimeout(() => {
+            sidebar.classList.remove('open');
+        }, 8000);
+    }
+
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+        });
+    });
+}
+</script><script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+  const page = document.getElementById(pageId);
+  if (page) {
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  const navItem = document.querySelector(`.nav-item[data-page='${pageId}']`);
+  if (navItem) navItem.classList.add('active');
+  document.getElementById('sidebar').classList.remove('open');
+}
+</script></body>
+</html>
