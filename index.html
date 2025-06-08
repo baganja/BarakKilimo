@@ -6,7 +6,38 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Barak Kilimo</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Garamond&amp;display=swap" rel="stylesheet"/>
+<style>
+body, h1, h2, h3, h4, h5, h6, p, a, span, div {
+    font-family: 'Garamond', 'Verdana', serif !important;
+    font-size: 1.1rem;
+    line-height: 1.75;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000000 !important;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+    color: white !important;
+}
+
+.hero-subtitle,
+.hero-description {
+    color: white !important;
+}
+</style>
 <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #000000 0%, #111111 100%);
@@ -618,6 +649,8 @@
         }
 
         .project-content p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
             color: var(--text-secondary);
             margin-bottom: 20px;
             line-height: 1.6;
@@ -683,7 +716,7 @@
 
         .contact-card p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         /* Social Contact Section */
@@ -771,6 +804,18 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+  .footer-container {
+    margin-left: 0 !important;
+    padding: 20px;
+  }
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  .sidebar {
+    width: 100%;
+    height: 100vh;
+  }
             .mobile-menu-toggle {
                 display: block;
             }
@@ -958,6 +1003,15 @@ footer.custom-footer {
 .sidebar {
     min-height: 100vh;
 }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
 </style>
 <style>
 .project-card {
@@ -1003,6 +1057,15 @@ footer.custom-footer {
 .view-project-btn:hover {
     background: var(--primary-dark);
 }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
 </style><style>
 .view-project-btn {
     background: transparent;
@@ -1019,6 +1082,15 @@ footer.custom-footer {
 .view-project-btn:hover {
     background: #007bff;
     color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 </style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/><style>
 .mobile-menu-toggle {
@@ -1052,6 +1124,15 @@ footer.custom-footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
 </style><meta content="Barak Kilimo - GIS Specialist Portfolio showcasing projects in Web GIS, Remote Sensing, Data Science, and Spatial Analysis." name="description"/><meta content="#000000" name="theme-color"/><style>
 .mobile-menu-toggle {
   position: fixed;
@@ -1064,6 +1145,15 @@ footer.custom-footer {
   z-index: 2001;
   cursor: pointer;
 }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
 </style><style>
 .mobile-menu-toggle {
   position: fixed;
@@ -1072,7 +1162,7 @@ footer.custom-footer {
   background: #007bff;
   border: none;
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
   padding: 10px 20px;
   border-radius: 30px;
   z-index: 2001;
@@ -1083,6 +1173,15 @@ footer.custom-footer {
 }
 .mobile-menu-toggle i {
   font-size: 1.2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 </style><style>
 .sidebar {
@@ -1119,7 +1218,16 @@ footer.custom-footer {
   background: rgba(255, 255, 255, 0.1);
 }
 .sidebar .nav-item i {
-  font-size: 1rem;
+  font-size: 1.1rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 </style><style>
 .sidebar .nav-item {
@@ -1133,7 +1241,7 @@ footer.custom-footer {
     color: var(--text-primary);
 }
 .sidebar .nav-item i {
-    font-size: 1rem;
+    font-size: 1.1rem;
     flex-shrink: 0;
 }
 .sidebar .nav-item:hover {
@@ -1144,19 +1252,680 @@ footer.custom-footer {
     background: rgba(0, 123, 255, 0.15);
     color: #007bff;
 }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
 </style><style>
 body, .page {
     color: #121212;
     background-color: #ffffff;
 }
-</style></head>
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.project-image span {
+    font-size: 3rem;
+    color: var(--text-primary);
+    filter: none !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+
+.sidebar {
+    padding-top: 30px;
+    background: var(--glass-bg);
+    border-right: 1px solid var(--glass-border);
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    font-size: 0.95rem;
+}
+.sidebar-header .logo {
+    font-size: 2rem;
+    border: 2px solid var(--glass-border);
+    background: #007bff;
+    color: white;
+    transition: transform 0.3s ease;
+}
+.sidebar-header .logo:hover {
+    transform: scale(1.05) rotate(-3deg);
+}
+.nav-menu {
+    margin-top: 20px;
+}
+.nav-item {
+    border-radius: 8px;
+    padding: 12px 18px;
+}
+
+
+/* About section refinement */
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.about-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ccc;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 700px;
+    text-align: justify;
+    line-height: 1.8;
+    padding: 0 10px;
+}
+
+
+/* Elegant newspaper-style About layout */
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    column-count: 2;
+    column-gap: 40px;
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.85;
+}
+
+
+/* Refined About section */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about-image {
+    margin-bottom: 30px;
+}
+
+.about-image img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.about-text {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.85;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.about-text h2 {
+    font-size: 1.8rem;
+    color: #004080;
+    text-align: left;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+}
+
+
+/* Refined Newspaper About Style */
+.about-section {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: 'Georgia', serif;
+}
+
+.about-image {
+    float: left;
+    shape-outside: circle(50%);
+    width: 280px;
+    height: 280px;
+    margin: 0 30px 20px 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.about-text {
+    overflow: hidden;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: justify;
+    padding-top: 10px;
+}
+
+.about-text p {
+    margin-bottom: 1.4rem;
+}
+
+.about-text p:first-of-type::first-letter {
+    float: left;
+    font-size: 3rem;
+    line-height: 1;
+    padding-right: 8px;
+    font-weight: bold;
+    color: #004080;
+    font-family: 'Georgia', serif;
+}
+
+
+.wrap-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.about-paragraphs {
+    flex: 1;
+    min-width: 300px;
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.about-image {
+    width: 260px;
+    height: 260px;
+    flex-shrink: 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+</style><link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000 });</script>
+<style>
+/* Styled About Page */
+.newspaper-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    color: #204080;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.header .tagline {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header {
+    border-bottom: 2px solid #204080;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.profile-image {
+    float: left;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: 0 2rem 1rem 0;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border: 4px solid white;
+    outline: 2px solid #204080;
+}
+
+.drop-cap {
+    float: left;
+    font-size: 3.8rem;
+    line-height: 3.2rem;
+    color: #204080;
+    font-weight: bold;
+    padding-right: 8px;
+    font-family: 'Georgia', serif;
+}
+
+.main-content {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    text-align: justify;
+    color: #333;
+}
+
+.main-content p {
+    margin-bottom: 1.6rem;
+}
+
+.highlight {
+    background-color: #ffecb3;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #222;
+}
+
+.pull-quote {
+    float: right;
+    width: 280px;
+    background: #f0f4fb;
+    border-left: 5px solid #4a90e2;
+    font-style: italic;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0 1rem 2rem;
+    font-size: 1rem;
+    color: #204080;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.vision-section {
+    background: #f0f4ff;
+    padding: 2rem;
+    border-left: 6px solid #204080;
+    margin-top: 3rem;
+    border-radius: 8px;
+    font-style: italic;
+    color: #204080;
+}
+
+.vision-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #204080;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.vision-section p {
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.quote-marks.open {
+    font-size: 2.5rem;
+    position: absolute;
+    left: -25px;
+    top: -20px;
+    opacity: 0.3;
+}
+
+.quote-marks.close {
+    font-size: 2.5rem;
+    position: absolute;
+    right: -25px;
+    bottom: -20px;
+    opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+    .profile-image, .pull-quote {
+        float: none;
+        display: block;
+        margin: 0 auto 1rem auto;
+    }
+
+    .main-content, .vision-section {
+        text-align: left;
+    }
+}
+</style><style>
+        /* DARK THEME CODE */
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at top, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(0, 102, 255, 0.03) 0%, transparent 50%),
+                #000000;
+        }
+
+        /* GIS ANIMATION CODE */
+        .geospatial-visualization {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            z-index: 1;
+        }
+
+        .central-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: 
+                radial-gradient(circle, rgba(0, 212, 255, 0.8) 0%, rgba(0, 153, 204, 0.6) 50%, rgba(0, 102, 255, 0.4) 100%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            box-shadow: 
+                0 0 60px rgba(0, 212, 255, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .central-hub::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .data-nodes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .node {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #00D4FF, #0099CC);
+            border-radius: 50%;
+            animation: orbit 12s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+        }
+
+        .node::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+        }
+
+        .node:nth-child(1) {
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0s;
+            transform-origin: 0 240px;
+        }
+
+        .node:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: -2s;
+            transform-origin: -150px 120px;
+        }
+
+        .node:nth-child(3) {
+            bottom: 20%;
+            right: 30%;
+            animation-delay: -4s;
+            transform-origin: -100px -80px;
+        }
+
+        .node:nth-child(4) {
+            bottom: 15%;
+            left: 25%;
+            animation-delay: -6s;
+            transform-origin: 100px -90px;
+        }
+
+        .node:nth-child(5) {
+            top: 25%;
+            left: 20%;
+            animation-delay: -8s;
+            transform-origin: 130px 140px;
+        }
+
+        .node:nth-child(6) {
+            top: 50%;
+            right: 10%;
+            animation-delay: -10s;
+            transform-origin: -140px 0px;
+        }
+
+        .connecting-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+            animation: dataFlow 4s ease-in-out infinite;
+        }
+
+        .line:nth-child(1) {
+            top: 30%;
+            left: 35%;
+            width: 150px;
+            transform: rotate(25deg);
+            animation-delay: 0s;
+        }
+
+        .line:nth-child(2) {
+            top: 60%;
+            left: 20%;
+            width: 200px;
+            transform: rotate(-15deg);
+            animation-delay: 1s;
+        }
+
+        .line:nth-child(3) {
+            top: 45%;
+            right: 25%;
+            width: 120px;
+            transform: rotate(45deg);
+            animation-delay: 2s;
+        }
+
+        .line:nth-child(4) {
+            bottom: 35%;
+            left: 40%;
+            width: 180px;
+            transform: rotate(-35deg);
+            animation-delay: 3s;
+        }
+
+        .coordinate-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridShift 20s linear infinite;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(0, 212, 255, 0.7);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 25%; right: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { bottom: 30%; left: 25%; animation-delay: 4s; }
+        .particle:nth-child(4) { top: 65%; right: 15%; animation-delay: 1s; }
+        .particle:nth-child(5) { bottom: 20%; right: 30%; animation-delay: 3s; }
+        .particle:nth-child(6) { top: 40%; left: 10%; animation-delay: 5s; }
+        .particle:nth-child(7) { bottom: 45%; left: 80%; animation-delay: 6s; }
+        .particle:nth-child(8) { top: 80%; left: 60%; animation-delay: 7s; }
+
+        /* ANIMATION KEYFRAMES */
+        @keyframes pulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.1);
+                box-shadow: 0 0 100px rgba(0, 212, 255, 0.8);
+            }
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+        }
+
+        @keyframes dataFlow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes gridShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-30px) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .geospatial-visualization {
+                width: 500px;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .geospatial-visualization {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .central-hub {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .central-hub::after {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .node {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    </style></head>
 <body><button class="mobile-menu-toggle" onclick="toggleMobileMenu()" style="position: fixed; top: 20px; left: 20px; z-index: 1001; background: transparent; color: #007bff; border: none; padding: 4px 8px; font-size: 0.95rem; display: flex; align-items: center; gap: 6px; cursor: pointer;"><i class="fas fa-bars"></i><span> Menu</span></button>
 <!-- Loading Screen -->
 <!-- Mobile Menu Toggle -->
 <!-- Sidebar Navigation -->
 <nav class="sidebar" id="sidebar">
 <div class="sidebar-header">
-<div class="logo">BK</div>
+<div class="logo" style="font-family: Georgia, serif; font-size: 2rem; font-weight: bold; color: #004080; text-align: center;">BK</div>
 <div class="tagline">GIS Specialist</div>
 </div>
 <div class="nav-menu">
@@ -1196,30 +1965,73 @@ body, .page {
 <main class="main-content">
 <!-- Home Page -->
 <div class="page active" id="home">
-<div class="hero-section" style="background: url('images/hero-bg.gif') center center / cover no-repeat fixed;position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;">
-<div class="hero-content" style="max-width: 800px; padding: 40px; text-align: center;text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
-<h1 class="hero-title" style="color: #0000FF; font-weight: normal; font-size: 4rem;">Barak Kilimo</h1>
-<p class="hero-subtitle" style="color: white; font-weight: 500;">GIS Specialist &amp; Spatial Analytics Expert</p>
-<p class="hero-description" style="color: white; font-weight: 500;">
-                        Transforming spatial data into actionable insights through advanced 
-                        geospatial analysis, enterprise GIS solutions, and cutting-edge cartographic design.
-                    </p>
+<div class="container">
+<div class="floating-particles">
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+</div>
+<div class="geospatial-visualization">
+<div class="coordinate-grid"></div>
+<div class="connecting-lines">
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+</div>
+<div class="central-hub"></div>
+<div class="data-nodes">
+<div class="node"></div>
+<div class="node"></div>
+<div class="node"></div>
+<div class="node"></div>
+<div class="node"></div>
+<div class="node"></div>
+</div>
+</div>
+<div class="hero-content" style="z-index: 2; position: relative;">
+<h1 class="hero-title" style="color: #00D4FF;">Barak Kilimo</h1>
+<p class="hero-subtitle">GIS Specialist &amp; Spatial Analytics Expert</p>
+<p class="hero-description">
+  Transforming spatial data into actionable insights through advanced geospatial analysis,
+  enterprise GIS solutions, and cutting-edge cartographic design.
+</p>
 <button class="cta-button" onclick="showPage('about')">
-                        Explore My Work <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+  Explore My Work <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
 </button>
-</div>
-</div>
+</div></div>
 </div>
 <!-- About Page -->
-<div class="page" id="about">
-<div class="page-header">
-<h1 class="page-title">About Me</h1>
-<p class="page-subtitle">Passionate about transforming spatial data into meaningful insights</p>
-</div>
-<div class="about-grid" style="display: flex; flex-direction: column; gap: 40px;"><div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;"><div class="about-image">
-<img alt="Barak Kilimo" class="profile-pic" src="images/profile.jpg"/>
-</div><div class="about-text" style="flex: 1;"><h3>My Journey into GIS</h3><p>My journey into geospatial engineering began in the remote villages of Kerio Valley, where I witnessed firsthand the profound challenges that geographic isolation and resource limitations impose on rural communities. Growing up in a banditry-prone region of Baringo County, I developed an early fascination with how geographic understanding could unlock solutions to the agricultural and developmental challenges that defined my childhood landscape.</p></div></div><div class="about-text"><p>As a young boy in Chepturu Primary School, I was captivated by the patterns of the land around me—the way seasonal rains transformed the valley, how elevation influenced crop yields, and how geographic factors determined which communities thrived or struggled. This curiosity evolved into a conviction that spatial analysis and remote sensing technologies could revolutionize how we approach agriculture, resource management, and community development in marginalized areas.</p><p>My academic journey took me from being the sole student from my primary school to advance to secondary education, through the competitive environment of Kamagut High School in Eldoret, and eventually to the prestigious St. Joseph's Boys School in Kitale. Each transition strengthened my resolve to pursue geospatial engineering as a means of creating meaningful change.</p><p>At Jomo Kenyatta University of Agriculture and Technology, I immersed myself in the intricate world of Geospatial Information Science and Remote Sensing. The theoretical foundations I gained there came alive during my practical experiences—from conducting land surveys in Kiambu County, where I honed my understanding of property boundaries and legal documentation, to implementing Plus Code Addressing systems in Kisumu County, where I witnessed technology's power to improve urban planning and service delivery.</p><p>Recognizing that the future of GIS lies at the intersection of traditional spatial analysis and modern web technologies, I expanded my expertise through specialized training at Zalego Academy in Westlands, focusing on programming and web development. This foundation led me to pursue advanced coursework in Web GIS development through Udemy and Harvard's CS50 Introduction to Programming with Python, integrating cutting-edge programming skills with my geospatial expertise.</p><p>My professional portfolio spans diverse sectors—from telecommunications infrastructure projects with Jamii Telecom to international web development for Terra Check, a geology company in Saudi Arabia. Each project has reinforced my belief that geospatial solutions can bridge the gap between complex geographic challenges and practical, scalable interventions.</p><p>Today, I specialize in creating sophisticated spatial analyses and cartographic solutions that support evidence-based decision-making across industries. My work is driven by the same passion that first emerged in the Kerio Valley—the conviction that understanding our geographic world is fundamental to creating equitable opportunities and sustainable development.</p><p>From the rural landscapes of Baringo to the technological corridors of Nairobi, my journey reflects a commitment to leveraging geospatial intelligence as a force for transformative change. I bring not just technical expertise in GIS platforms, remote sensing, and web development, but also the perspective of someone who understands how geographic solutions can reshape communities and lives.</p></div></div>
-</div>
+<div class="page" id="about"><div class="newspaper-container"><header class="header fade-in">
+<h1>My Journey into GIS</h1>
+<p class="tagline">From Rural Kenya to Geospatial Innovation</p>
+</header><main class="main-content fade-in">
+<!-- Profile Image floated left -->
+<img alt="Barak Kilimo" class="profile-image" src="images/profile.jpg"/>
+<p><span class="drop-cap">M</span>y journey into geospatial engineering began in the remote villages of Kerio Valley, where I witnessed firsthand the profound challenges that geographic isolation and resource limitations impose on rural communities. Growing up in a banditry-prone region of Baringo County, I developed an early fascination with how <span class="highlight">geographic understanding could unlock solutions</span> to the agricultural and developmental challenges that defined my childhood landscape.</p>
+<div class="pull-quote">
+                "Geography wasn't just about maps—it was about understanding the invisible connections between location, resources, and human potential."
+            </div>
+<p>As a young boy in Chepturu Primary School, I was captivated by the patterns of the land around me—the way seasonal rains transformed the valley, how elevation influenced crop yields, and how geographic factors determined which communities thrived or struggled. This curiosity evolved into a conviction that <span class="highlight">spatial analysis and remote sensing technologies</span> could revolutionize how we approach agriculture, resource management, and community development in marginalized areas.</p>
+<p>My academic journey took me from being the sole student from my primary school to advance to secondary education, through the competitive environment of Kamagut High School in Eldoret, and eventually to the prestigious St. Joseph's Boys School in Kitale. Each transition strengthened my resolve to pursue geospatial engineering as a means of creating meaningful change.</p>
+<p>At Jomo Kenyatta University of Agriculture and Technology, I immersed myself in the intricate world of <span class="highlight">Geospatial Information Science and Remote Sensing</span>. The theoretical foundations I gained there came alive during my practical experiences—from conducting land surveys in Kiambu County, where I honed my understanding of property boundaries and legal documentation, to implementing Plus Code Addressing systems in Kisumu County, where I witnessed technology's power to improve urban planning and service delivery.</p>
+<p>Recognizing that the future of GIS lies at the intersection of traditional spatial analysis and modern web technologies, I expanded my expertise through specialized training at Zalego Academy in Westlands, focusing on programming and web development. This foundation led me to pursue advanced coursework in Web GIS development through Udemy and <span class="highlight">Harvard's CS50 Introduction to Programming with Python</span>, integrating cutting-edge programming skills with my geospatial expertise.</p>
+<p>My professional portfolio spans diverse sectors—from telecommunications infrastructure projects with Jamii Telecom to international web development for Terra Check, a geology company in Saudi Arabia. Each project has reinforced my belief that geospatial solutions can bridge the gap between complex geographic challenges and practical, scalable interventions.</p>
+<p>Today, I specialize in creating sophisticated spatial analyses and cartographic solutions that support evidence-based decision-making across industries. My work is driven by the same passion that first emerged in the Kerio Valley—the conviction that <span class="highlight">understanding our geographic world is fundamental to creating equitable opportunities</span> and sustainable development.</p>
+<p>From the rural landscapes of Baringo to the technological corridors of Nairobi, my journey reflects a commitment to leveraging geospatial intelligence as a force for transformative change. I bring not just technical expertise in GIS platforms, remote sensing, and web development, but also the perspective of someone who understands how <span class="highlight">geographic solutions can reshape communities and lives</span>.</p>
+</main><section class="vision-section fade-in">
+<h2>My Vision</h2>
+<p>
+<span class="quote-marks open">"</span>
+                To democratize geospatial technology and make it accessible to rural and underserved communities across Africa. I envision a future where every farmer has access to precision agriculture tools, every community can assess their disaster risks, and every local government can make data-driven decisions about resource allocation. My goal is to bridge the digital divide through innovative GIS solutions that are not only technologically advanced but also culturally appropriate and economically accessible.
+                <span class="quote-marks close">"</span>
+</p>
+</section></div></div>
 <!-- Skills Page -->
 <div class="page" id="skills">
 <div class="page-header">
@@ -1402,7 +2214,7 @@ body, .page {
 <div class="page-header">
 <h1 class="page-title">Portfolio Projects</h1>
 </div>
-<div class="project-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 20px;"><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🗺️</span></div><div class="project-content"><h4>Interactive Web GIS Platform for County Infrastructure</h4><p>🛠 JavaScript, Leaflet.js, PostGIS, HTML5/CSS3 | ⏱ 6 months (2022)</p><p>👤 Client: Africa Center for Advanced Technology</p><p>Developed a comprehensive web-based GIS platform for managing Kisumu County's urban infrastructure. The application features real-time data visualization, interactive mapping, and infrastructure asset management capabilities.</p><ul style="margin-left: 20px;"><li>Interactive dashboard with multiple basemap options (satellite, street view, terrain)</li><li>Real-time infrastructure status monitoring with color-coded indicators</li><li>Advanced filtering and search functionality for roads, water systems, and public facilities</li><li>Mobile-responsive design with touch-optimized controls</li><li>Layer management panel with transparency controls and legend</li><li>Pop-up information windows displaying detailed asset attributes</li></ul><button class="view-project-btn" data-project="urban-growth">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📐</span></div><div class="project-content"><h4>Precision Land Survey and Cadastral Mapping System</h4><p>🛠 AutoCAD Civil 3D, ArcGIS Pro, Total Station, RTK GPS | ⏱ 4 months (2022)</p><p>👤 Client: Kenya Forest Service</p><p>Conducted comprehensive land surveying and boundary demarcation for Kenya Forest Service, creating detailed cadastral maps and Forest documentation.</p><ul style="margin-left: 20px;"><li>High-precision topographic surveys with 1cm accuracy</li><li>Digital cadastral maps with parcel boundaries and coordinates</li><li>Survey reports with bearing calculations and area computations</li><li>Legal descriptions and boundary certificates</li><li>3D terrain models showing elevation contours and slope analysis</li></ul><button class="view-project-btn" data-project="land-use-classification">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📍</span></div><div class="project-content"><h4>Plus Code Addressing Implementation for Urban Planning</h4><p>🛠 Google Maps API, Python, QGIS, PostgreSQL | ⏱ 8 months (2022)</p><p>👤 Client: Kisumu County Urban Planning Department</p><p>Implemented a comprehensive Plus Code addressing system for Kisumu County, geocoding over 15,000 locations to improve emergency response, service delivery, and urban planning initiatives.</p><ul style="margin-left: 20px;"><li>Systematic geocoding of residential, commercial, and institutional addresses</li><li>Quality assurance protocols ensuring 95% location accuracy</li><li>Integration with existing county databases and mapping systems</li><li>Training programs for local government staff</li><li>Mobile data collection application for field verification</li></ul><button class="view-project-btn" data-project="disaster-management">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🪨</span></div><div class="project-content"><h4>Terra Check Geological Survey Web Platform</h4><p>🛠 React.js, Node.js, MongoDB, Bootstrap, D3.js | ⏱ 10 months (2023-2024)</p><p>👤 Client: Terra Check Company, Saudi Arabia</p><p>Developed a comprehensive web platform for geological survey data management, featuring interactive visualizations, report generation, and client portal functionality for international geological consultancy.</p><ul style="margin-left: 20px;"><li>Interactive geological map viewer with drill hole data visualization</li><li>Dynamic charts and graphs for mineral composition analysis</li><li>Automated report generation with customizable templates</li><li>Client dashboard with project progress tracking</li><li>Multi-language support (English/Arabic)</li><li>Secure file management and document sharing system</li></ul><button class="view-project-btn" data-project="transport-optimization">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📈</span></div><div class="project-content"><h4>Australia Living Costs Crisis Dashboard</h4><p>🛠 R, Shiny, Plotly, DT | ⏱ 3 months (2024)</p><p>Created an interactive R Shiny dashboard analyzing Australia's cost of living crisis since 2018, tracking inflation trends and price increases across essential categories to understand the financial impact on Australian households.</p><ul style="margin-left: 20px;"><li>Consumer Price Index tracking across 6 key categories (2018–2024)</li><li>Real-time inflation monitoring with current annual rate display</li><li>Category-specific cost increase analysis (Housing: 92.9%, Food: 67.4%, Transport: 37.2%)</li><li>Interactive time-series visualizations showing price trends by sector</li><li>Comparative regional analysis tools for living cost variations</li><li>Cost-of-living squeeze metrics correlating wage growth with essential expenses</li><li>Data export functionality for economic research and policy analysis</li></ul><button class="view-project-btn" data-project="environmental-monitoring">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🚨</span></div><div class="project-content"><h4>Melbourne Crime Pattern Analysis System</h4><p>🛠 ArcGIS Pro, Python (Pandas, GeoPandas), R (Crime Analysis), QGIS | ⏱ 4 months (2024)</p><p>Conducted comprehensive spatial crime analysis for Melbourne metropolitan area, identifying crime hotspots, temporal patterns, and risk factors to support law enforcement resource allocation and community safety initiatives.</p><ul style="margin-left: 20px;"><li>Hotspot analysis using Kernel Density Estimation</li><li>Temporal pattern analysis by hour, day, and season</li><li>Crime correlation analysis with socioeconomic indicators</li><li>Predictive risk modeling for high-crime areas</li><li>Network analysis for optimal patrol route planning</li><li>Statistical reporting with confidence intervals and significance testing</li></ul><button class="view-project-btn" data-project="precision-agriculture">View Project</button></div></div></div>
+<div class="projects-grid"><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🗺️</span></div><div class="project-content"><h4>Interactive Web GIS Platform for County Infrastructure</h4><p>🛠 JavaScript, Leaflet.js, PostGIS, HTML5/CSS3 | ⏱ 6 months (2022)</p><p>👤 Client: Africa Center for Advanced Technology</p><p>Developed a comprehensive web-based GIS platform for managing Kisumu County's urban infrastructure. The application features real-time data visualization, interactive mapping, and infrastructure asset management capabilities.</p><ul style="margin-left: 20px;"><li>Interactive dashboard with multiple basemap options (satellite, street view, terrain)</li><li>Real-time infrastructure status monitoring with color-coded indicators</li><li>Advanced filtering and search functionality for roads, water systems, and public facilities</li><li>Mobile-responsive design with touch-optimized controls</li><li>Layer management panel with transparency controls and legend</li><li>Pop-up information windows displaying detailed asset attributes</li></ul><button class="view-project-btn" data-project="urban-growth">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📐</span></div><div class="project-content"><h4>Precision Land Survey and Cadastral Mapping System</h4><p>🛠 AutoCAD Civil 3D, ArcGIS Pro, Total Station, RTK GPS | ⏱ 4 months (2022)</p><p>👤 Client: Kenya Forest Service</p><p>Conducted comprehensive land surveying and boundary demarcation for Kenya Forest Service, creating detailed cadastral maps and Forest documentation.</p><ul style="margin-left: 20px;"><li>High-precision topographic surveys with 1cm accuracy</li><li>Digital cadastral maps with parcel boundaries and coordinates</li><li>Survey reports with bearing calculations and area computations</li><li>Legal descriptions and boundary certificates</li><li>3D terrain models showing elevation contours and slope analysis</li></ul><button class="view-project-btn" data-project="land-use-classification">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📍</span></div><div class="project-content"><h4>Plus Code Addressing Implementation for Urban Planning</h4><p>🛠 Google Maps API, Python, QGIS, PostgreSQL | ⏱ 8 months (2022)</p><p>👤 Client: Kisumu County Urban Planning Department</p><p>Implemented a comprehensive Plus Code addressing system for Kisumu County, geocoding over 15,000 locations to improve emergency response, service delivery, and urban planning initiatives.</p><ul style="margin-left: 20px;"><li>Systematic geocoding of residential, commercial, and institutional addresses</li><li>Quality assurance protocols ensuring 95% location accuracy</li><li>Integration with existing county databases and mapping systems</li><li>Training programs for local government staff</li><li>Mobile data collection application for field verification</li></ul><button class="view-project-btn" data-project="disaster-management">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🪨</span></div><div class="project-content"><h4>Terra Check Geological Survey Web Platform</h4><p>🛠 React.js, Node.js, MongoDB, Bootstrap, D3.js | ⏱ 10 months (2023-2024)</p><p>👤 Client: Terra Check Company, Saudi Arabia</p><p>Developed a comprehensive web platform for geological survey data management, featuring interactive visualizations, report generation, and client portal functionality for international geological consultancy.</p><ul style="margin-left: 20px;"><li>Interactive geological map viewer with drill hole data visualization</li><li>Dynamic charts and graphs for mineral composition analysis</li><li>Automated report generation with customizable templates</li><li>Client dashboard with project progress tracking</li><li>Multi-language support (English/Arabic)</li><li>Secure file management and document sharing system</li></ul><button class="view-project-btn" data-project="transport-optimization">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>📈</span></div><div class="project-content"><h4>Australia Living Costs Crisis Dashboard</h4><p>🛠 R, Shiny, Plotly, DT | ⏱ 3 months (2024)</p><p>Created an interactive R Shiny dashboard analyzing Australia's cost of living crisis since 2018, tracking inflation trends and price increases across essential categories to understand the financial impact on Australian households.</p><ul style="margin-left: 20px;"><li>Consumer Price Index tracking across 6 key categories (2018–2024)</li><li>Real-time inflation monitoring with current annual rate display</li><li>Category-specific cost increase analysis (Housing: 92.9%, Food: 67.4%, Transport: 37.2%)</li><li>Interactive time-series visualizations showing price trends by sector</li><li>Comparative regional analysis tools for living cost variations</li><li>Cost-of-living squeeze metrics correlating wage growth with essential expenses</li><li>Data export functionality for economic research and policy analysis</li></ul><button class="view-project-btn" data-project="environmental-monitoring">View Project</button></div></div><div class="project-card"><div class="project-image" style="display: flex; align-items: center; justify-content: center; height: 150px; font-size: 4rem; background: none; color: var(--text-primary);"><span>🚨</span></div><div class="project-content"><h4>Melbourne Crime Pattern Analysis System</h4><p>🛠 ArcGIS Pro, Python (Pandas, GeoPandas), R (Crime Analysis), QGIS | ⏱ 4 months (2024)</p><p>Conducted comprehensive spatial crime analysis for Melbourne metropolitan area, identifying crime hotspots, temporal patterns, and risk factors to support law enforcement resource allocation and community safety initiatives.</p><ul style="margin-left: 20px;"><li>Hotspot analysis using Kernel Density Estimation</li><li>Temporal pattern analysis by hour, day, and season</li><li>Crime correlation analysis with socioeconomic indicators</li><li>Predictive risk modeling for high-crime areas</li><li>Network analysis for optimal patrol route planning</li><li>Statistical reporting with confidence intervals and significance testing</li></ul><button class="view-project-btn" data-project="precision-agriculture">View Project</button></div></div></div>
 </div>
 <!-- Contact Page -->
 <div class="page" id="contact">
@@ -1532,5 +2344,14 @@ function showPage(pageId) {
   if (navItem) navItem.classList.add('active');
   document.getElementById('sidebar').classList.remove('open');
 }
-</script></body>
+</script><script>
+  document.querySelectorAll('.skill-tag').forEach(tag => {
+    tag.style.cursor = 'pointer';
+    tag.addEventListener('click', () => {
+      const query = encodeURIComponent(tag.textContent.trim());
+      window.open(`https://www.google.com/search?q=${query}`, '_blank');
+    });
+  });
+</script>
+</body>
 </html>
